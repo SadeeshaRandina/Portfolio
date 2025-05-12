@@ -380,7 +380,6 @@ header .container {
 
 .skill-badge {
     transition: var(--transition);
-    
 }
 
 .skill-badge:hover {
