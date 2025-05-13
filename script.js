@@ -125,7 +125,7 @@ contactForm.addEventListener('submit', (e) => {
 // Typing animation for home section
 document.addEventListener('DOMContentLoaded', function() {
     const jobTitleElement = document.querySelector('.home-text h2');
-    const jobTitles = ['Problem Solver', 'Web Developer', 'Software Engineer', 'Tech Enthusiast'];
+    const jobTitles = ['Software Engineering Undergraduate', 'Problem Solver', 'Web Developer', 'Tech Enthusiast'];
     let currentIndex = 0;
     
     // Function to update the job title with typing effect
