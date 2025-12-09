@@ -1,40 +1,43 @@
 /* ===== VARIABLES ===== */
 :root {
-    /* Dark Theme Colors */
-    --primary-color: #00bfa5;
-    --secondary-color: #00bfa5;
-    --accent-color: #9a9e9d;
-    --dark-bg: #0f0f23;
-    --card-bg: #1a1a2e;
-    --surface-bg: #16213e;
-    --text-primary: #e2e8f0;
-    --text-secondary: #94a3b8;
-    --text-muted: #64748b;
+    /* Dark Theme Colors - Professional Navy & Gold */
+    --primary-color: #2563eb;
+    --secondary-color: #3b82f6;
+    --accent-color: #f59e0b;
+    --dark-bg: #0a0e27;
+    --card-bg: #1a1f3a;
+    --surface-bg: #151b33;
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
     --success-color: #10b981;
     --warning-color: #f59e0b;
     --danger-color: #ef4444;
-    --border-color: #334155;
-    --box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    --box-shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.4);
+    --border-color: #2d3548;
+    --box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    --box-shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.5);
     --transition: all 0.3s ease-in-out;
     --mobile-padding: 2rem;
-    --gradient-primary: linear-gradient(135deg, #00bfa5 0%, #00bfa5 100%);
-    --gradient-card: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    --gradient-primary: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+    --gradient-secondary: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+    --gradient-card: linear-gradient(135deg, #1a1f3a 0%, #151b33 100%);
 }
 
-/* Light Theme Colors */
+/* Light Theme Colors - Professional Blue & White */
 body.light-mode {
-    --dark-bg: #f8fafc;
-    --card-bg: #ffffff;
+    --primary-color: #2563eb;
+    --secondary-color: #3b82f6;
+    --accent-color: #f59e0b;
+    --dark-bg: #ffffff;
+    --card-bg: #f8fafc;
     --surface-bg: #f1f5f9;
-    --text-primary: #1e293b;
+    --text-primary: #0f172a;
     --text-secondary: #475569;
     --text-muted: #64748b;
     --border-color: #e2e8f0;
-    --box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-    --box-shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.12);
-    --gradient-card: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-    --accent-color: #64748b;
+    --box-shadow: 0 10px 25px rgba(37, 99, 235, 0.08);
+    --box-shadow-hover: 0 20px 40px rgba(37, 99, 235, 0.12);
+    --gradient-card: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
 }
 
 /* ===== BASE STYLES ===== */
@@ -67,9 +70,9 @@ body::before {
     width: 100%;
     height: 100%;
     background-image: 
-        radial-gradient(circle at 20% 50%, rgba(0, 212, 170, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(100, 255, 218, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 40% 80%, rgba(0, 191, 165, 0.1) 0%, transparent 50%);
+        radial-gradient(circle at 20% 50%, rgba(37, 99, 235, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(245, 158, 11, 0.05) 0%, transparent 50%);
     z-index: -1;
     pointer-events: none;
     opacity: 1;
@@ -196,14 +199,14 @@ header {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(15, 15, 35, 0.95);
+    background: rgba(10, 14, 39, 0.95);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border-color);
     transition: var(--transition);
 }
 
 body.light-mode header {
-    background: rgba(248, 250, 252, 0.95);
+    background: rgba(255, 255, 255, 0.95);
 }
 
 header .container {
@@ -338,7 +341,7 @@ nav {
 }
 
 .home-text h1.last-name {
-    background: linear-gradient(135deg, #00bfa5 0%, #64ffda 100%);
+    background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -620,10 +623,17 @@ nav {
 .project-tags span {
     padding: 0.5rem 1.5rem;
     border-radius: 3rem;
-    background: rgba(0, 212, 170, 0.2);
-    color: var(--accent-color);
+    background: rgba(37, 99, 235, 0.15);
+    color: var(--primary-color);
     font-size: 1.2rem;
-    border: 1px solid rgba(0, 212, 170, 0.3);
+    border: 1px solid rgba(37, 99, 235, 0.3);
+    font-weight: 500;
+}
+
+body.light-mode .project-tags span {
+    background: rgba(37, 99, 235, 0.1);
+    color: var(--primary-color);
+    border-color: rgba(37, 99, 235, 0.2);
 }
 
 .project-links {
@@ -754,7 +764,7 @@ footer {
     opacity: 0;
     visibility: hidden;
     z-index: 999;
-    border: 1px solid rgba(0, 212, 170, 0.3);
+    border: 1px solid rgba(37, 99, 235, 0.3);
 }
 
 #scrollToTop.active {
@@ -836,7 +846,7 @@ footer {
         left: -100%;
         width: 100%;
         flex-direction: column;
-        background: rgba(15, 15, 35, 0.98);
+        background: rgba(10, 14, 39, 0.98);
         backdrop-filter: blur(20px);
         border: 1px solid var(--border-color);
         border-radius: 0 0 1rem 1rem;
@@ -847,7 +857,7 @@ footer {
     }
 
     body.light-mode .nav-links {
-        background: rgba(248, 250, 252, 0.98);
+        background: rgba(255, 255, 255, 0.98);
     }
 
     .nav-links.active {
