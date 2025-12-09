@@ -8,6 +8,31 @@ const filterBtns = document.querySelectorAll('.filter-btn');
 const projectCards = document.querySelectorAll('.project-card');
 const contactForm = document.getElementById('contactForm');
 const sections = document.querySelectorAll('section');
+const themeToggle = document.getElementById('themeToggle');
+
+// ===== THEME TOGGLE FUNCTIONALITY =====
+// Check for saved theme preference or default to 'dark' mode
+const currentTheme = localStorage.getItem('theme') || 'dark';
+
+// Apply the saved theme on page load
+if (currentTheme === 'light') {
+    document.body.classList.add('light-mode');
+    themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+}
+
+// Theme toggle event listener
+themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+    
+    // Update icon based on current theme
+    if (document.body.classList.contains('light-mode')) {
+        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        localStorage.setItem('theme', 'light');
+    } else {
+        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+        localStorage.setItem('theme', 'dark');
+    }
+});
 
 // Window Load Event
 window.addEventListener('load', () => {

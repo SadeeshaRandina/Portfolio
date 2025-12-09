@@ -1,5 +1,6 @@
 /* ===== VARIABLES ===== */
 :root {
+    /* Dark Theme Colors */
     --primary-color: #00bfa5;
     --secondary-color: #00bfa5;
     --accent-color: #9a9e9d;
@@ -21,6 +22,21 @@
     --gradient-card: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
 }
 
+/* Light Theme Colors */
+body.light-mode {
+    --dark-bg: #f8fafc;
+    --card-bg: #ffffff;
+    --surface-bg: #f1f5f9;
+    --text-primary: #1e293b;
+    --text-secondary: #475569;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+    --box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    --box-shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.12);
+    --gradient-card: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    --accent-color: #64748b;
+}
+
 /* ===== BASE STYLES ===== */
 * {
     margin: 0;
@@ -40,10 +56,28 @@ body {
     color: var(--text-primary);
     background: var(--dark-bg);
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-image: 
         radial-gradient(circle at 20% 50%, rgba(0, 212, 170, 0.1) 0%, transparent 50%),
         radial-gradient(circle at 80% 20%, rgba(100, 255, 218, 0.1) 0%, transparent 50%),
         radial-gradient(circle at 40% 80%, rgba(0, 191, 165, 0.1) 0%, transparent 50%);
+    z-index: -1;
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+body.light-mode::before {
+    opacity: 0.3;
 }
 
 a {
@@ -103,7 +137,7 @@ section {
 
 .primary-btn {
     background: var(--gradient-primary);
-    color: var(--text-primary);
+    color: #ffffff;
 }
 
 .primary-btn:hover {
@@ -120,7 +154,7 @@ section {
 
 .secondary-btn:hover {
     background: var(--gradient-primary);
-    color: var(--text-primary);
+    color: #ffffff;
     transform: translateY(-3px);
     box-shadow: var(--box-shadow);
     border-color: transparent;
@@ -168,6 +202,10 @@ header {
     transition: var(--transition);
 }
 
+body.light-mode header {
+    background: rgba(248, 250, 252, 0.95);
+}
+
 header .container {
     display: flex;
     justify-content: space-between;
@@ -183,6 +221,12 @@ header .container {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     letter-spacing: 0.5px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
 }
 
 .nav-links {
@@ -217,6 +261,29 @@ header .container {
 .nav-links a:hover::after,
 .nav-links a.active::after {
     width: 100%;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 1.8rem;
+}
+
+.theme-toggle:hover {
+    background: var(--gradient-primary);
+    color: #ffffff;
+    border-color: transparent;
+    transform: rotate(20deg) scale(1.1);
 }
 
 .hamburger {
@@ -321,7 +388,7 @@ header .container {
 
 .social-links a:hover {
     background: var(--gradient-primary);
-    color: var(--text-primary);
+    color: #ffffff;
     transform: translateY(-3px);
     border-color: transparent;
 }
@@ -489,7 +556,7 @@ header .container {
 .filter-btn.active,
 .filter-btn:hover {
     background: var(--gradient-primary);
-    color: var(--text-primary);
+    color: #ffffff;
     border-color: transparent;
 }
 
@@ -586,7 +653,7 @@ header .container {
 
 .contact-item i {
     font-size: 2.5rem;
-    color: var(--text-primary);
+    color: #ffffff;
     width: 5rem;
     height: 5rem;
     display: flex;
@@ -677,7 +744,7 @@ footer {
     height: 5rem;
     border-radius: 50%;
     background: var(--gradient-primary);
-    color: var(--text-primary);
+    color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -780,6 +847,10 @@ footer {
         transition: var(--transition);
     }
 
+    body.light-mode .nav-links {
+        background: rgba(248, 250, 252, 0.98);
+    }
+
     .nav-links.active {
         left: 0;
     }
@@ -851,7 +922,7 @@ footer {
     }
     
     .home-img {
-        order: 5.5; /* Changed from 6 to 5.5 to place it between paragraph and buttons */
+        order: 5.5;
         text-align: center;
         margin: 2rem 0;
     }
