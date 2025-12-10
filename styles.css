@@ -937,8 +937,8 @@ footer {
     }
     
     .home-img img {
-        width: 15rem;
-        height: 15rem;
+        width: 25rem;
+        height: 25rem;
         object-fit: cover;
         border-radius: 50%;
         margin: 0 auto;
